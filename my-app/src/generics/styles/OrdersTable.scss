@@ -1,0 +1,74 @@
+
+.contentTableContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .tableContainer {
+    flex: 0 1 550px; /*  Stretching: */
+    margin: 5px;
+    border: 0.3px solid darkgray;
+    border-radius: 2px 2px 2px 2px;
+
+    .tableTitle {
+      font-size: 16px;
+      text-align: start;
+      height: 30px;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .tableRow {
+      display: flex;
+      flex-direction: row;
+      align-content: center;
+      justify-content: space-between;
+      margin-bottom: 5px;
+      margin-left: 3px;
+      margin-right: 10px;
+      font-size: 13px;
+
+      &.gray {
+        color: gray;
+      }
+
+      &.mainRow {
+        margin-bottom: 10px
+      }
+
+      &.bold {
+        font-weight: bold;
+      }
+
+      &.highlight {
+
+        &:hover {
+          background: lightgray;
+        }
+      }
+
+      .cell {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        justify-content: center;
+        justify-content: flex-start;
+        width: 80px;
+
+        &.buy {
+          color: green;
+
+        }
+
+        &.sell  {
+          color: red;
+        }
+
+        &.bold {
+          font-weight: bold;
+        }
+
+      }
+    }
+  }
+}

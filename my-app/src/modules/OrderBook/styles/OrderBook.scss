@@ -1,0 +1,19 @@
+.orderBookContainer {
+
+  .orderBookHeaderContainer {
+    display: flex;
+    justify-content: flex-start;
+
+    .orderBookHeader {
+      display: flex;
+      flex-direction: row;
+      margin: 17px 10px 10px 10px;
+
+      .title {
+        font-size: 30px;
+        font-weight: bold;
+        margin-right: 15px;
+      }
+    }
+  }
+}
