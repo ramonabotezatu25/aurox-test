@@ -33,17 +33,27 @@
       }
 
       &.mainRow {
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        border-bottom: 1px solid gray;
       }
 
       &.bold {
         font-weight: bold;
       }
 
-      &.highlight {
-
+      &.highlight-sell {
         &:hover {
-          background: lightgray;
+          background: #ff7a6a;
+          color: white;
+          font-weight: bold;
+        }
+      }
+
+      &.highlight-buy {
+        &:hover {
+          background: mediumseagreen;
+          color: white;
+          font-weight: bold;
         }
       }
 

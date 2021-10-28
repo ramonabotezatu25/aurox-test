@@ -34,7 +34,7 @@ const OrdersTable: FunctionComponent<IProps> = ({
                 )}
             </div>
             {rows?.map((row: any, index: number) =>
-                <div key={generateRandomKey()} className="tableRow gray highlight">
+                <div key={generateRandomKey()} className={`tableRow gray  highlight-${scope}`}>
                     <div key={generateRandomKey()} className={`cell bold ${scope}`}>{info.sideTexT} {index + 1}</div>
                     <div key={generateRandomKey()}
                          className='cell'>{formatToCustomDecimal(row?.price, decimalGroupBy)}</div>
