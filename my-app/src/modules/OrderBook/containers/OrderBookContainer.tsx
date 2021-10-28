@@ -1,10 +1,11 @@
 import React, {FunctionComponent} from 'react';
-import OrdersBookHeader from "./OrdersBookHeader";
-import {currencies} from "../../utils/currencies";
-import './styles/OrderBook.scss'
-import OrderBookContent from "./OrderBookContent";
+import OrdersBookHeader from "../OrdersBookHeader";
+import {currencies} from "../../../utils/constants";
+import '../styles/OrderBook.scss'
 import {connect} from "react-redux";
-import {IDataState, IStream} from "../../interfaces";
+import {IDataState, IStream} from "../../../interfaces";
+import OrderBookContent from "../OrderBookContent";
+
 
 interface IProps {
     stream: IStream;
@@ -17,10 +18,9 @@ const OrderBookContainer: FunctionComponent<IProps> = ({
     decimalGroupBy,
     depthViewCount,
 }) => {
-    const symbols = currencies;
     return (
         <div className="orderBookContainer">
-            <OrdersBookHeader symbols={symbols}/>
+            <OrdersBookHeader symbols={currencies}/>
             <OrderBookContent stream={stream} decimalGroupBy={decimalGroupBy} depthViewCount={depthViewCount}/>
         </div>
     );

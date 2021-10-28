@@ -15,7 +15,7 @@ export const getData = async (symbol) => {
         await axios.get('https://api1.binance.com/api/v3/depth', {
             params: {
                 symbol: formatSymbol(symbol, "USDT"), //hardcoded for the moment
-                limit: 50,
+                limit: 25,
             },
         }).then((response) => {
                 if (response) {

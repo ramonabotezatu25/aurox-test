@@ -1,9 +1,9 @@
 import React, {FunctionComponent} from 'react';
 import SearchedBar from "./SearchedBar";
-import GroupByDropDown from "../../generics/GroupByDropDown";
-import {orderByDecimals, orderByDepth} from "../../utils/currencies";
 import store from "../../store/store";
 import {setGroupByDecimalCount, setViewByDepthCount} from "../../store/actions/dataAction";
+import CustomDropDown from "../../generics/CustomDropDown";
+import {orderByDecimals, orderByDepth} from "../../utils/constants";
 
 interface IProps {
     symbols: string[];
@@ -25,18 +25,20 @@ const OrdersBookHeader: FunctionComponent<IProps> = ({
             <div className= "orderBookHeader">
                 <div className="title"> Order Book </div>
                 <SearchedBar symbols={symbols}/>
-                <GroupByDropDown
+                <CustomDropDown
                     input={orderByDecimals}
                     defaultValue={orderByDecimals[2]}
                     actionToDispatch={(param) => dispatchGroupByDecimal(param)}
                     defaultInputLabel="Group"
                     additionalText = "decimals"
+                    id="dropDownCustomDecimal"
                 />
-                <GroupByDropDown
+                <CustomDropDown
                     input={orderByDepth}
                     defaultValue={orderByDepth[0]}
                     actionToDispatch={(param) => dispatchViewByDepth(param)}
                     defaultInputLabel="Depth"
+                    id="dropDownCustomDepth"
                 />
             </div>
         </div>

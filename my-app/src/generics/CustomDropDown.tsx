@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useEffect} from 'react';
+import React, {FunctionComponent} from 'react';
 import {FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 
 interface IProps {
@@ -7,36 +7,33 @@ interface IProps {
     actionToDispatch: (arg: any) => void;
     defaultInputLabel: string;
     additionalText?: string;
+    id: string;
 }
 
-
-const GroupByDropDown: FunctionComponent<IProps> = ({
+const CustomDropDown: FunctionComponent<IProps> = ({
     input,
     defaultValue,
     actionToDispatch,
     defaultInputLabel,
     additionalText,
+    id,
 }) => {
     const [decimal, setDecimals] = React.useState(defaultValue);
 
     const handleChange = (event: any) => {
-        setDecimals(event.target.value);
+        const target = event.target.value;
+        setDecimals(target);
+        if (target !== undefined || target !== null) {
+            actionToDispatch(parseInt(String(target)));
+        }
     };
-
-    useEffect(() => {
-       console.log("parent child dispatch");
-       if (decimal != undefined || decimal != null) {
-           actionToDispatch(parseInt(String(decimal)));
-       }
-    },[decimal]);
-
     return (
         <div>
             <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-                <InputLabel id="demo-simple-select-filled-label">{defaultInputLabel}</InputLabel>
+                <InputLabel id={id}>{defaultInputLabel}</InputLabel>
                 <Select
-                    labelId="demo-simple-select-filled-label"
-                    id="demo-simple-select-filled"
+                    labelId={`${id}-labelId`}
+                    id={`${id}-selectId`}
                     value={decimal}
                     onChange={handleChange}
                 >
@@ -47,4 +44,4 @@ const GroupByDropDown: FunctionComponent<IProps> = ({
     );
 };
 
-export default GroupByDropDown;
+export default CustomDropDown;

@@ -10,10 +10,9 @@ export const formatAsksArray = (array, maxLength) => {
 
     if (array) {
         const SIZE = maxLength > array?.length ? array?.length : maxLength;
-        console.log("SIZEEEEE", array.length, maxLength);
         for (let i = 0; i < SIZE; i++) {
-            formattedPrice = parseFloat(array[i][0]).toFixed(4);
-            formattedQantity = parseFloat(array[i][1]).toFixed(4);
+            formattedPrice = formatToCustomDecimal(array[i][0],4);
+            formattedQantity = formatToCustomDecimal(array[i][1],4);
             total = (parseFloat(formattedPrice)*parseFloat(formattedQantity)).toFixed(5);
             result?.push(
                 {
@@ -36,7 +35,7 @@ export const orderStreamMessages = (oldArray, newArr, maxLenght) => {
      new elements will be added at the end of the array
    */
     const newArrFiltered = filteredArrayBasedOnQauntity(newArr);
-    const SIZE = newArrFiltered.length < maxLenght ? newArrFiltered.length : maxLenght;
+    const SIZE = newArrFiltered?.length < maxLenght ? newArrFiltered?.length : maxLenght;
     for (let i = 0; i < SIZE; i++) {
         oldArray?.shift();
         oldArray?.push(newArrFiltered[i]);
@@ -51,13 +50,9 @@ export const generateRandomKey = () => {
 
 //remove all items that quantity is <= 0.
 export const filteredArrayBasedOnQauntity = (arr) => {
-    return arr.filter((item) => Math.fround(parseFloat(item[1])) > Math.fround(0));
+    return arr?.filter((item) => Math.fround(parseFloat(item[1])) > Math.fround(0));
 };
 
 export const formatToCustomDecimal = (value, decimal) => {
     return parseFloat(value).toFixed(decimal);
 };
-
-export const displayItemsBasedOnDepthCount = (array, depthCount) => {
-    console.log("Ramona");
-}

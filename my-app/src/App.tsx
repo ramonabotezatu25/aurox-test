@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import './App.css';
-import OrderBookContainer from "./modules/OrderBook/OrderBookContainer";
+import OrderBookContainer from "./modules/OrderBook/containers/OrderBookContainer";
 import MySocket from "./utils/webSockets/MySocket";
 
 function App() {

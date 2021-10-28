@@ -30,10 +30,10 @@ const SearchedBar: FunctionComponent<IProps> = ({
     return (
         <div>
             <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-                <InputLabel id="demo-simple-select-filled-label">Currency</InputLabel>
+                <InputLabel id="searchByCurrencyDropDown">Currency</InputLabel>
                 <Select
-                    labelId="demo-simple-select-filled-label"
-                    id="demo-simple-select-filled"
+                    labelId="searchByCurrencyDropDown-labelId"
+                    id="searchByCurrencyDropDown-selectId"
                     value={symbol}
                     onChange={handleChange}
                 >
